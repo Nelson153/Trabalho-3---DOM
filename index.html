@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Trabalho 3 </title>
+
+    <style>
+
+        body{
+            max-width: 1000px;
+            margin: 190px;
+        }
+
+        input[type=range]{
+            float: center;
+            width: 23%;
+        }
+
+        #dados{
+            width: 100%;
+            padding-left: 250px;
+            border: 0;
+            margin-top: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="cor">
+        Vermelho <input type="range" min="0" max="255" step="1" id="vermelho" >
+        Verde <input type="range" min="0" max="255" step="1" id="verde" >
+        Azul <input type="range" min="0" max="255" step="1" id="azul">
+
+        <div id="resultado">
+             <input type="text" id="dados" value="rgb(127, 127, 127)" disabled>
+        </div>
+    </div>
+
+
+    <script>
+
+        document.getElementById('vermelho').addEventListener('input', cor)
+        document.getElementById('verde').addEventListener('input', cor)
+        document.getElementById('azul').addEventListener('input', cor)
+
+
+        function cor(){
+            let vermelho = document.querySelector('#vermelho').value
+            let verde = document.querySelector('#verde').value
+            let azul = document.querySelector('#azul').value
+            
+            let cor = 'rgb('+ vermelho +', '+ verde +', '+ azul +')'
+
+            document.getElementById('dados').value = cor
+
+            let exibir = document.querySelector('#resultado')
+            exibir.style.background = cor
+
+        }
+
+    </script>
+</body>
+</html>
